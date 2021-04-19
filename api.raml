@@ -1,0 +1,45 @@
+#%RAML 1.0
+title: Challenge Tecnico API
+description: Challenge Nodejs - PatagonianTech
+mediaType: application/json
+
+/api/uploadfile:
+  description: Upload csv with the following columns: UUID, VIN, Make, Model, Mileage, Year, Price, Zip Code, Create Date and Update Date
+
+  post:
+    description: | 
+      description: Upload csv with the following columns: UUID, VIN, Make, Model, Mileage, Year, Price, Zip Code, Create Date and Update Date to MongoDB
+      Use the "multipart-form/data" content type to upload a file which content will become the file-content
+    body:
+      multipart/form-data:
+        properties:
+          uploadfile:
+            description: The CSV you want to upload
+            required: true
+            type: file
+          provider:
+            description: Provider name
+            required: true
+            minLength: 3
+            type: string
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "msg": "File uploaded successfully!",
+                "result": {
+                  "insertedCount" : 1007,
+                  "insertedIds" :  {
+                    "0": "607d140f12d8d609c0f7ed7e",
+                    "1": "607d140f12d8d609c0f7ed7f",
+                  }
+                }
+              }
+      400:
+        body:
+          application/json:
+            example: |
+              {"message": "No provider name or file were found"}
+ 

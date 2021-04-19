@@ -20,7 +20,7 @@ describe('Testing API', () => {
             .expect(200)
             .then((res) => {
                 expect(res.body).to.contain.property('msg');
-                expect(res.body).to.contain.property('file');
+                expect(res.body).to.contain.property('result');
             })
             .catch((err) => console.log(err))
         done()
