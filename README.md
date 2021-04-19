@@ -27,5 +27,3 @@ Run `npm run test` to execute the unit tests via [Mocha](https://mochajs.org/).
 ## Notes
 - In files folder you have an example of the CSV.
 - In the root of the repository you have api.html to see the API description
-
-
