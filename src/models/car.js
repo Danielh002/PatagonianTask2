@@ -1,18 +1,21 @@
 var mongoose = require('mongoose');
 
 const CarSchema =  new mongoose.Schema({
+    _id: mongoose.Schema.Types.ObjectId,
     provider: { type: String, required: true },
-    uuid: { type: String, required: true },
-    vin: { type: String, required: true },
-    make: { type: String, required: true },
-    model: { type: String, required: true },
-    mileage: { type: String, required: true },
-    year: { type: String, required: true },
-    price: { type: String, required: true },
-    zipCode: { type: String, required: true },
-    createdAt: { type: String, required: true },
-    updatedAt: { type: String, required: true },
-});
+    uuid: { type: String },
+    vin: { type: String },
+    make: { type: String },
+    model: { type: String },
+    mileage: { type: String },
+    year: { type: String },
+    price: { type: String },
+    zipCode: { type: String },
+    createdAt: { type: String },
+    updatedAt: { type: String },   
+},
+    { collection: 'Car'}
+);
 
 
 module.exports = mongoose.model('Car', CarSchema);
