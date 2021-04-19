@@ -1,7 +1,7 @@
 # Patagonian Nodejs Challenge
 This project is Node js project was generated using NPM (6.14.10) and Node(v14.15.4)
 
-# TASK
+# Task
 
 Build an API with a single endpoint that accepts a file upload in the CSV format and the provider name that sent the file, looks up a configuration defining the column layout and parses the CSV into either a file or - as a stretch goal - into an in-memory database (see below)
 ## Install dependencies
