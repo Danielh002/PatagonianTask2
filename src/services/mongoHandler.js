@@ -12,6 +12,7 @@ module.exports.connect = async () => {
     };
 
     await mongoose.connect(uri, mongooseOpts);
+    console.log('MongoURL', uri)
 }
 
  module.exports.closeDatabase = async () => {

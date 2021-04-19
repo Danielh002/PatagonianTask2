@@ -6,13 +6,13 @@ const mongoHandler = require('../services/mongoHandler')
 
 const uploadFunction = async function (req, res) {
     try{
-        path = __basedir + '/uploads/' + req.file.filename
-        provider =  req.body.provider
-        jsonObject = await csv().fromFile(path)
-        cars = commons.convertArray(jsonObject, provider)
-        Car.collection.insertMany(cars, mongoHandler.onInsert)
+        let path = __basedir + '/uploads/' + req.file.filename
+        let provider =  req.body.provider
+        let jsonObject = await csv().fromFile(path)
+        let cars = commons.convertArray(jsonObject, provider)
+        let response = await Car.collection.insertMany(cars, mongoHandler.onInsert)
         res.json({
-            'msg': 'File uploaded successfully!', 'file': cars
+            'msg': 'File uploaded successfully!', 'file': cars, 'dbResponse' : response
         });
     }catch(err){
         res.json({
