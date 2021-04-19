@@ -23,3 +23,5 @@ app.listen(PORT, HOST, () => {
 mongoHandler.connect()
     .then(() =>  console.log('Connected to database '))
     .catch((err) =>  console.error(`Error connecting to the database. \n${err}`))
+
+module.exports = app
