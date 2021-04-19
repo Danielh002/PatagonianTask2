@@ -1,6 +1,8 @@
-var expect  = require('chai').expect;
-var request = require('supertest');
+const expect  = require('chai').expect;
+const request = require('supertest');
 const app = require('../server')
+const mongoHandler = require('../src/services/mongoHandler')
+
 
 afterEach(() => {
 })
@@ -22,6 +24,11 @@ describe('Testing API', () => {
             })
             .catch((err) => console.log(err))
         done()
+    })
+
+    afterEach(async () => {
+        await mongoHandler.clearDatabase()
+        await mongoHandler.closeDatabase()
     })
 })
 
